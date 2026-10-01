@@ -8,11 +8,16 @@ select
     L_PARTKEY as partkey,
     L_SUPPKEY as suppkey,
 
-    -- Dates
-    O_ORDERDATE as orderdate,
-    L_SHIPDATE as shipdate,
-    L_COMMITDATE as commitdate,
-    L_RECEIPTDATE as receiptdate,
+    -- Dates (we link them to dim_date)
+    to_number(to_char(O_ORDERDATE, 'YYYYMMDD')) as orderdate_key,
+    to_number(to_char(L_SHIPDATE, 'YYYYMMDD')) as shipdate_key,
+    to_number(to_char(L_COMMITDATE, 'YYYYMMDD')) as commitdate_key,
+    to_number(to_char(L_RECEIPTDATE, 'YYYYMMDD')) as receiptdate_key,
+
+    --O_ORDERDATE as orderdate,
+    --L_SHIPDATE as shipdate,
+    --L_COMMITDATE as commitdate,
+    --L_RECEIPTDATE as receiptdate,
 
     -- Measures
     L_QUANTITY as quantity,
