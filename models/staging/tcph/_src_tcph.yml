@@ -10,3 +10,4 @@ sources:
       - name: PART
       - name: PARTSUPP
       - name: REGION
+      - name: SUPPLIER

@@ -1,0 +1,26 @@
+models:
+
+    - name: stg_tcph_customer
+      description: "Staging model for CUSTOMER."
+
+    - name: stg_tcph_lineitem
+      description: "Staging model for LINEITEM."
+
+    - name: stg_tcph_nation
+      description: "Staging model for NATION."
+
+    - name: stg_tcph_orders
+      description: "Staging model for ORDERS."
+
+    - name: stg_tcph_part
+      description: "Staging model for PART."
+
+    - name: stg_tcph_partsupp
+      description: "Staging model for PARTSUPP."
+
+    - name: stg_tcph_region
+      description: "Staging model for REGION."
+
+    - name: stg_tcph_supplier
+      description: "Staging model for SUPPLIER."
+      
