@@ -11,8 +11,8 @@ renamed as (
     select
         l_orderkey,         -- relationship with orders
         l_partkey,          -- relationship with part
-        l_suppkey,          -- 
-        l_linenumber,       -- 
+        l_suppkey,          -- relationship with supplier
+        l_linenumber,       -- not null (it's like a row_number() for each orderkey)
         l_quantity,         -- just a float that could be an int
         l_extendedprice,    -- float
         l_discount,         -- float

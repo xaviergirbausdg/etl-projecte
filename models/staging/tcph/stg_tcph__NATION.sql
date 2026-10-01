@@ -10,7 +10,7 @@ renamed as (
 
     select
         n_nationkey,    -- id, pk
-        n_name,         -- maybe unique??
+        n_name,         -- not null maybe unique??
         n_regionkey,    -- relationship with region
         n_comment       -- string
 

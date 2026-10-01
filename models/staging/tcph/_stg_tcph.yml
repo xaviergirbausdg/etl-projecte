@@ -5,35 +5,178 @@ models:
       description: "Staging model for CUSTOMER."
       columns:
         - name: c_custkey
+          description: "Primary key of CUSTOMER"
           data_tests:
             - unique
             - not_null
+        - name: c_nationkey
+          description: "Foreign key to nation"
+          data_tests:
+            - relationships:
+                arguments: 
+                  to: ref('stg_tcph__NATION')
+                  field: n_nationkey
+        - name: c_mktsegment
+          data_tests:
+            - accepted_values:
+                arguments:
+                  values: ['HOUSEHOLD', 'BUILDING', 'AUTOMOBILE', 'MACHINERY', 'FURNITURE']
 
 
     - name: stg_tcph__LINEITEM
       description: "Staging model for LINEITEM."
+      columns:
+        - name: l_orderkey
+          description: "Foreign key to orders"
+          data_tests:
+            - relationships:
+                arguments: 
+                  to: ref('stg_tcph__ORDERS')
+                  field: o_orderkey
+        - name: l_partkey
+          description: "Foreign key to part"
+          data_tests:
+            - relationships:
+                arguments: 
+                  to: ref('stg_tcph__PART')
+                  field: p_partkey
+        - name: l_suppkey
+          description: "Foreign key to supplier"
+          data_tests:
+            - relationships:
+                arguments: 
+                  to: ref('stg_tcph__SUPPLIER')
+                  field: s_suppkey
+        - name: l_linenumber
+          data_tests:
+            - not_null
+        - name: l_returnflag
+          data_tests:
+            - accepted_values:
+                arguments: 
+                  values: ['N', 'R', 'A']
+        - name: l_linestatus
+          data_tests:
+            - accepted_values:
+                arguments: 
+                  values: ['F', 'O']
+        - name: l_shipinstruct
+          data_tests:
+            - accepted_values:
+                arguments: 
+                  values: ['NONE', 'COLLECT COD', 'DELIVER IN PERSON', 'TAKE BACK RETURN']
+        - name: l_shipmode
+          data_tests:
+            - accepted_values:
+                arguments: 
+                  values: ['SHIP', 'REG AIR', 'MAIL', 'AIR', 'RAIL', 'TRUCK', 'FOB']
 
 
     - name: stg_tcph__NATION
       description: "Staging model for NATION."
+      columns:
+        - name: n_nationkey
+          description: "Primary key of NATION"
+          data_tests:
+            - unique
+            - not_null
+        - name: n_name
+          data_tests:
+            - not_null
+        - name: n_regionkey
+          description: "Foreign key to region"
+          data_tests:
+            - relationships:
+                arguments: 
+                  to: ref('stg_tcph__REGION')
+                  field: r_regionkey
 
 
     - name: stg_tcph__ORDERS
       description: "Staging model for ORDERS."
+      columns:
+        - name: o_orderkey
+          description: "Primary key of ORDERS"
+          data_tests:
+            - unique
+            - not_null
+        - name: o_custkey
+          description: "Foreign key to CUSTOMER"
+          data_tests:
+            - relationships:
+                arguments: 
+                  to: ref('stg_tcph__CUSTOMER')
+                  field: c_custkey
+        - name: o_orderstatus
+          data_tests:
+            - accepted_values:
+                arguments: 
+                  values: ['F', 'O', 'P']
+        - name: o_orderpriority
+          data_tests:
+            - accepted_values:
+                arguments: 
+                  values: ['1-URGENT', '2-HIGH', '3-MEDIUM', '4-NOT SPECIFIED', '5-LOW']
 
 
     - name: stg_tcph__PART
       description: "Staging model for PART."
+      columns:
+        - name: p_partkey
+          description: "Primary key of PART"
+          data_tests:
+            - unique
+            - not_null
+        - name: p_name
+          data_tests:
+            - not_null
 
 
     - name: stg_tcph__PARTSUPP
       description: "Staging model for PARTSUPP."
+      columns:
+        - name: ps_partkey
+          description: "Foreign key to PART"
+          data_tests:
+            - relationships:
+                arguments: 
+                  to: ref('stg_tcph__PART')
+                  field: p_partkey
+        - name: ps_suppkey
+          description: "Foreign key to SUPPLIER"
+          data_tests:
+            - relationships:
+                arguments: 
+                  to: ref('stg_tcph__SUPPLIER')
+                  field: s_suppkey
 
 
     - name: stg_tcph__REGION
       description: "Staging model for REGION."
+      columns:
+        - name: r_regionkey
+          description: "Primary key of REGION"
+          data_tests:
+            - unique
+            - not_null
+        - name: r_name
+          data_tests:
+            - not_null
 
 
     - name: stg_tcph__SUPPLIER
       description: "Staging model for SUPPLIER."
+      columns:
+        - name: s_suppkey
+          description: "Primary key of SUPPLIER"
+          data_tests:
+            - unique
+            - not_null
+        - name: s_nationkey
+          description: "Foreign key to nation"
+          data_tests:
+            - relationships:
+                arguments: 
+                  to: ref('stg_tcph__NATION')
+                  field: n_nationkey
 

@@ -13,9 +13,9 @@ renamed as (
         p_name,         -- string (is it unique??)
         p_mfgr,         -- relationship??, else string
         p_brand,        -- relationship??, else string
-        p_type,         -- accepted values??, else string
+        p_type,         -- accepted values??, else string (could be divided into size, type, color)
         p_size,         -- int
-        p_container,    -- accepted values??, else string
+        p_container,    -- accepted values??, else string (could be divided into type, size)
         p_retailprice,  -- float
         p_comment       -- string
 
