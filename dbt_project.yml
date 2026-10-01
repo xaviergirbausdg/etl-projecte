@@ -39,3 +39,5 @@ models:
   projecte:
     staging:
       +materialized: table
+    marts:
+      +materialized: table
