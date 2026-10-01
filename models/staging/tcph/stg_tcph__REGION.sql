@@ -9,9 +9,9 @@ source as (
 renamed as (
 
     select
-        r_regionkey,
-        r_name,
-        r_comment
+        r_regionkey,    -- id, pk
+        r_name,         -- unique??
+        r_comment       -- string
 
     from source
 

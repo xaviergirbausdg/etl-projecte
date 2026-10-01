@@ -1,26 +1,39 @@
+version: 2
+
 models:
-
-    - name: stg_tcph_customer
+    - name: stg_tcph__CUSTOMER
       description: "Staging model for CUSTOMER."
+      columns:
+        - name: c_custkey
+          data_tests:
+            - unique
+            - not_null
 
-    - name: stg_tcph_lineitem
+
+    - name: stg_tcph__LINEITEM
       description: "Staging model for LINEITEM."
 
-    - name: stg_tcph_nation
+
+    - name: stg_tcph__NATION
       description: "Staging model for NATION."
 
-    - name: stg_tcph_orders
+
+    - name: stg_tcph__ORDERS
       description: "Staging model for ORDERS."
 
-    - name: stg_tcph_part
+
+    - name: stg_tcph__PART
       description: "Staging model for PART."
 
-    - name: stg_tcph_partsupp
+
+    - name: stg_tcph__PARTSUPP
       description: "Staging model for PARTSUPP."
 
-    - name: stg_tcph_region
+
+    - name: stg_tcph__REGION
       description: "Staging model for REGION."
 
-    - name: stg_tcph_supplier
+
+    - name: stg_tcph__SUPPLIER
       description: "Staging model for SUPPLIER."
-      
+

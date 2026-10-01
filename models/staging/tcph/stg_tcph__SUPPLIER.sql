@@ -9,13 +9,13 @@ source as (
 renamed as (
 
     select
-        s_suppkey,
-        s_name,
-        s_address,
-        s_nationkey,
-        s_phone,
-        s_acctbal,
-        s_comment
+        s_suppkey,      -- id, pk
+        s_name,         -- string (probably not unique)
+        s_address,      -- string
+        s_nationkey,    -- relationship with nation
+        s_phone,        -- string
+        s_acctbal,      -- float
+        s_comment       -- string
 
     from source
 

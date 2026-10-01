@@ -9,11 +9,11 @@ source as (
 renamed as (
 
     select
-        ps_partkey,
-        ps_suppkey,
-        ps_availqty,
-        ps_supplycost,
-        ps_comment
+        ps_partkey,     -- relationship with part
+        ps_suppkey,     -- relationship with supplier
+        ps_availqty,    -- int
+        ps_supplycost,  -- float
+        ps_comment      -- string
 
     from source
 

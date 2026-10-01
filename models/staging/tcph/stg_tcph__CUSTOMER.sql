@@ -9,14 +9,14 @@ source as (
 renamed as (
 
     select
-        c_custkey,
-        c_name,
-        c_address,
-        c_nationkey,
-        c_phone,
-        c_acctbal,
-        c_mktsegment,
-        c_comment
+        c_custkey,      -- id, pk
+        c_name,         -- just a string
+        c_address,      -- just a string
+        c_nationkey,    -- relationship with nation
+        c_phone,        -- just a string
+        c_acctbal,      -- just a float
+        c_mktsegment,   -- list of accepted values (HOUSEHOLD, BUILDING, AUTOMOBILE, MACHINERY, FURNITURE)
+        c_comment       -- just a string
 
     from source
 

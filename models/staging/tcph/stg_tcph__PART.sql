@@ -9,15 +9,15 @@ source as (
 renamed as (
 
     select
-        p_partkey,
-        p_name,
-        p_mfgr,
-        p_brand,
-        p_type,
-        p_size,
-        p_container,
-        p_retailprice,
-        p_comment
+        p_partkey,      -- id, pk
+        p_name,         -- string (is it unique??)
+        p_mfgr,         -- relationship??, else string
+        p_brand,        -- relationship??, else string
+        p_type,         -- accepted values??, else string
+        p_size,         -- int
+        p_container,    -- accepted values??, else string
+        p_retailprice,  -- float
+        p_comment       -- string
 
     from source
 

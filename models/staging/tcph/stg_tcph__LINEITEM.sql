@@ -9,22 +9,22 @@ source as (
 renamed as (
 
     select
-        l_orderkey,
-        l_partkey,
-        l_suppkey,
-        l_linenumber,
-        l_quantity,
-        l_extendedprice,
-        l_discount,
-        l_tax,
-        l_returnflag,
-        l_linestatus,
-        l_shipdate,
-        l_commitdate,
-        l_receiptdate,
-        l_shipinstruct,
-        l_shipmode,
-        l_comment
+        l_orderkey,         -- relationship with orders
+        l_partkey,          -- relationship with part
+        l_suppkey,          -- 
+        l_linenumber,       -- 
+        l_quantity,         -- just a float that could be an int
+        l_extendedprice,    -- float
+        l_discount,         -- float
+        l_tax,              -- float
+        l_returnflag,       -- accepted values(N, R, A)
+        l_linestatus,       -- accepted values(F, O)
+        l_shipdate,         -- date
+        l_commitdate,       -- date
+        l_receiptdate,      -- date
+        l_shipinstruct,     -- accepted values(NONE, COLLECT COD, DELIVER IN PERSON, TAKE BACK RETURN)
+        l_shipmode,         -- accepted values(SHIP, REG AIR, MAIL, AIR, RAIL, TRUCK, FOB)
+        l_comment           -- string
 
     from source
 
