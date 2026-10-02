@@ -25,10 +25,10 @@ select
     L_DISCOUNT as discount,
     L_TAX as tax,
 
-    L_EXTENDEDPRICE * (1 - L_DISCOUNT) as netamount,
-    L_EXTENDEDPRICE * (1 - L_DISCOUNT) * (1 + L_TAX) as totalamount,
+    {{ calculate_net_amount('L_EXTENDEDPRICE', 'L_DISCOUNT') }} as netamount,
+    {{ calculate_total_amount('L_EXTENDEDPRICE', 'L_DISCOUNT', 'L_TAX') }} as totalamount,
 
-    O_TOTALPRICE,
+    --O_TOTALPRICE,
 
     -- Others from orders
     O_ORDERSTATUS as orderstatus,
@@ -54,6 +54,6 @@ select
     --PS_COMMENT
 from {{ ref('stg_tcph__ORDERS') }} as o
     join {{ ref('stg_tcph__LINEITEM') }} as l on o_orderkey = l_orderkey
-    --join {{ ref('stg_tcph__PARTSUPP') }} as ps on ps_partkey = l_partkey and ps_suppkey = l_suppkey
+
 
 
