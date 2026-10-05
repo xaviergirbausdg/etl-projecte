@@ -1,0 +1,40 @@
+version: 2
+
+models:
+
+  - name: fct_sales
+    description: "Sales fact table"
+    columns:
+      - name: orderkey
+        description: "Order id."
+        data_tests:
+          - not_null
+
+      - name: linenumber
+        description: "Line number seq for each order"
+        data_tests:
+          - not_null
+
+      - name: custkey
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_customers')
+                field: C_CUSTKEY
+
+      - name: partkey
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_products')
+                field: P_PARTKEY
+
+      - name: suppkey
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_suppliers')
+                field: S_SUPPKEY
